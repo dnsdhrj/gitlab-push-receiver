@@ -27,7 +27,7 @@ class GitlabReceiver(BaseHTTPRequestHandler):
             body = json.load(self.rfile)
             project_name = body['project']['name']
             project_url = body['project']['url']
-            ref_branch = body['ref'].split('/')[-1]  # refs/heads/master
+            ref_branch = body['ref'].split('/')[-1]  # body['ref'] = 'refs/heads/master'
             logging.info("Received push event of '{}'({}) in branch '{}'.".format(project_name, project_url, ref_branch))
 
             found_match = False
@@ -65,7 +65,7 @@ def main():
 
     server_address = ('', RECEIVER_PORT)
     server_instance = HTTPServer(server_address, GitlabReceiver)
-    print('Starting Gitlab Push Receiver in port {}...'.format(RECEIVER_PORT))
+    logging.info('Starting Gitlab Push Receiver in port {}...'.format(RECEIVER_PORT))
     server_instance.serve_forever()
 
 
