@@ -1,0 +1,9 @@
+configs:
+  - name: webhook-test
+    url: 'git@gitlab.com:dnsdhrj/webhook-test.git'
+    branch: master
+    script: test.sh
+  - name: webhook-test
+    url: 'git@gitlab.com:dnsdhrj/webhook-test.git'
+    branch: develop
+    script: test2.sh
