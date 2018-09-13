@@ -3,7 +3,12 @@ Detect GitLab push events using [webhook](https://gitlab.com/help/user/project/i
 
 Can be used as a webhook router, with single entry point.
 
-Use with simple project which does not have CI.
+It is basically minimal CI you can think of.
+
+# Workflow Example
+1. Push to GitLab branch
+1. Server receives event and automatically runs `deploy.sh`
+1. Project is deployed!
 
 # Setup
 ```bash
